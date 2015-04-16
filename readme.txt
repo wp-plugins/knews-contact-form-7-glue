@@ -12,11 +12,11 @@ Add a Knews subscription field to your Contact Form 7 forms
 
 == Description ==
 
-Add a subscription checkbox to the Contact Form 7 forms easily and get subscribed to Knews.
+Add a subscription checkbox to the **Contact Form 7** forms easily and get subscribed to Knews.
 
 = Features =
 * Subscribe to different mailing lists based on browsing language
-* Works with Knews and Knews Pro
+* Works with **Knews** and **Knews Pro**
 * Support for the Knews Pro Custom Fields (every form field can be saved)
 * Opt-in (email confirmation) as option
 
@@ -40,19 +40,19 @@ Add a subscription checkbox to the Contact Form 7 forms easily and get subscribe
 
 == Frequently Asked Questions ==
 
-** The subscription checkbox doesn't appears **
+**The subscription checkbox doesn't appears**
 
 Please, check if you're added the Susbcription TAG and saved the form.
 
-** Is Knews+CF7 compatible with multilanguage? **
+**Is Knews+CF7 compatible with multilanguage?**
 
-Yes! This is his main goal: works with WPML, qTranslate and Polylang. When Knews supports more plugins it will do also.
+Yes! This is his main goal: works with **WPML**, **qTranslate** and **Polylang**. When Knews supports more plugins it will do also.
 
-** Should I update Knews / CF7? **
+**Should I update Knews / CF7?**
 
 Keept up to date is strongly recommended, but not, Knews+CF7 works with old versions.
 
-** Has the plugin limitation on Knews Free? **
+**Has the plugin limitation on Knews Free?**
 
 No, Knews+CF7 works with both versions in the same way
 
