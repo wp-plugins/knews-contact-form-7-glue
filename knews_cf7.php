@@ -5,7 +5,7 @@ Plugin URI: http://www.knewsplugin.com/knews-contact-form-7-glue/
 Description: Add a Knews subscription field to your Contact Form 7 forms
 Author: Carles Reverter
 Author URI: http://www.knewsplugin.com/
-Version: 0.9.0
+Version: 0.9.1
 License: GPLv2 or later
 Domain Path: /languages
 Text Domain: knews_cf7
@@ -151,12 +151,14 @@ class knews_cf7 {
 	/* Process the form field */
 	function before_send_mail( $contactform ) {
 		global $Knews_plugin;
-		
+
 		// make sure the user has Knews installed & active
 		if ( !defined('KNEWS_VERSION') ) return;
 	
+
 		if (! empty( $contactform->skip_mail )) return;
 	
+
 		$posted_data = null;
 		if ( class_exists( 'WPCF7_Submission' ) ) {// for Contact-Form-7 3.9 and above, http://contactform7.com/2014/07/02/contact-form-7-39-beta/
 			$submission = WPCF7_Submission::get_instance();
@@ -170,6 +172,7 @@ class knews_cf7 {
 		// and make sure they have something in their contact form
 		if ( empty($posted_data)) return;
 		
+
 		$user_cf = array();	
 		$user_email = '';
 		$bypass_confirmation = false;
@@ -180,8 +183,10 @@ class knews_cf7 {
 		$mytags = explode('[knewssubscription', $props['form']);
 		if (count($mytags) < 2) return;
 
+
 		$mytags = explode(']', $mytags[1]);
 		if (count($mytags) < 2) return;
+
 
 		$mytags = explode(' ', $mytags[0]);
 
@@ -221,7 +226,8 @@ class knews_cf7 {
 				if (isset($posted_data['locale_' . $knews_signup_field]) && $posted_data['locale_' . $knews_signup_field] != '') $locale = $posted_data['locale_' . $knews_signup_field];
 
 				$_field = trim($posted_data[$knews_signup_field]);
-				if (!empty($_field)) {
+
+				if ($_field != '') {
 					$knews_lists = array_unique(array_merge($knews_lists, explode(",", $posted_data[$knews_signup_field])));
 				}
 			}
@@ -238,6 +244,7 @@ class knews_cf7 {
 		
 		//Subscribe
 		$this->add_user($user_email, $knews_lists, $lang, $locale, $user_cf, $bypass_confirmation);
+
 	}
 
 

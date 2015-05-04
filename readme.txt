@@ -3,8 +3,8 @@ Contributors: creverter
 Donate link: http://www.knewsplugin.com/knews-contact-form-7-glue/
 Tags: contact form 7, sign up, knews, knews plugin, multilanguage, multilingual, newsletter, newsletters, subscribe, email capture, subscription, subscribers
 Requires at least: 3.1
-Tested up to: 4.1.1
-Stable tag: 0.9.0
+Tested up to: 4.2.1
+Stable tag: 0.9.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -59,8 +59,13 @@ No, Knews+CF7 works with both versions in the same way
 
 == Changelog ==
 
+= 0.9.1 =
+- Solved a major bug: the first version plugin fails for one mailing list subscription only (sorry guys)...
+
 = 0.9.0 =
 - Habemus plugin
 
 == Upgrade Notice ==
-- Nothing there
+
+= 0.9.1 =
+- Solved a major bug: the first version plugin fails for one mailing list subscription only (sorry guys)...
