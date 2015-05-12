@@ -5,7 +5,7 @@ Plugin URI: http://www.knewsplugin.com/knews-contact-form-7-glue/
 Description: Add a Knews subscription field to your Contact Form 7 forms
 Author: Carles Reverter
 Author URI: http://www.knewsplugin.com/
-Version: 0.9.1
+Version: 1.0.0
 License: GPLv2 or later
 Domain Path: /languages
 Text Domain: knews_cf7
@@ -40,7 +40,7 @@ class knews_cf7 {
 
 		$query = "SELECT * FROM " . KNEWS_LISTS;
 
-		if ((version_compare(KNEWS_VERSION, '1.6.4') >= 0 && version_compare(KNEWS_VERSION, '2.0.0') < 0) ||version_compare(KNEWS_VERSION, '2.2.6') >= 0) $query .= ' WHERE auxiliary=0';
+		if ((version_compare(KNEWS_VERSION, '1.6.4') >= 0 && version_compare(KNEWS_VERSION, '2.0.0') < 0) || version_compare(KNEWS_VERSION, '2.2.6') >= 0) $query .= ' WHERE auxiliary=0';
 		
 		if (version_compare(KNEWS_VERSION, '1.2.3') >= 0) $query .= " ORDER BY orderlist";
 		
@@ -83,7 +83,7 @@ class knews_cf7 {
 
 			$checkbox_values = array();
 			foreach ($lists as $list) {
-				if ( $tag->has_option( 'knews_cf7_' . $lang['language_code'] . '_' . $list->id ) ) 
+				if ( $tag->has_option( 'knews_cf7_' . (KNEWS_MULTILANGUAGE ? $lang['language_code'] . '_' : '') . $list->id ) ) 
 					$checkbox_values[] = $list->id;
 			}
 		}
@@ -93,8 +93,8 @@ class knews_cf7 {
 			// now implode them all into a comma separated string
 			$atts['value'] = implode( $checkbox_values, "," );
 		} else {
-			// set a 0 so we know to add the user to Knews but not to any specific list
-			$atts['value'] = "0";
+			// Not available subscription lists, don't show the checkbox option
+			return '';
 		}
 	
 	
@@ -235,7 +235,7 @@ class knews_cf7 {
 		
 		if (empty($knews_lists)) return;
 		
-		//No support for multiple mailing lists support yet, added in new release
+		//No support for multiple mailing lists support on old Knews releases
 		if ((version_compare(KNEWS_VERSION, '1.7.1') <= 0 && version_compare(KNEWS_VERSION, '2.0.0') < 0) || version_compare(KNEWS_VERSION, '2.3.3') <= 0) {
 			$knews_lists = $knews_lists[0];
 		}
